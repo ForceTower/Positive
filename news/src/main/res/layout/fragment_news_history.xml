@@ -1,8 +1,82 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/news_begin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_begin="48dp" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/news_end"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_end="48dp" />
+
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/bottom_content"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.9" />
+
+        <TextView
+            android:id="@+id/hashtag"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="56dp"
+            android:layout_marginEnd="4dp"
+            android:textAllCaps="true"
+            android:textColor="?android:attr/textColorPrimary"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toStartOf="@+id/news_end"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="#Notíciasdodia" />
+
+        <View
+            android:id="@+id/bar"
+            android:layout_width="0dp"
+            android:layout_height="8dp"
+            app:layout_constraintBottom_toTopOf="@+id/hashtag"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/hashtag"
+            tools:background="#8BC34A" />
+
+        <TextView
+            android:id="@+id/news_source"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="?android:attr/textColorPrimary"
+            android:textSize="16sp"
+            app:layout_constraintBottom_toTopOf="@+id/headline"
+            app:layout_constraintEnd_toStartOf="@+id/news_end"
+            app:layout_constraintStart_toStartOf="@+id/news_begin"
+            app:layout_constraintTop_toBottomOf="@+id/hashtag"
+            tools:text="Fonte: TecMundo" />
+
+        <TextView
+            android:id="@+id/headline"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:textAlignment="gravity"
+            android:textColor="?android:attr/textColorPrimary"
+            android:textSize="25sp"
+            app:layout_constraintBottom_toTopOf="@+id/bottom_content"
+            app:layout_constraintStart_toStartOf="@+id/news_begin"
+            app:layout_constraintEnd_toEndOf="@id/news_end"
+            app:layout_constraintTop_toBottomOf="@+id/news_source"
+            tools:text="O BNDES vai investir em três municípios para se transformarem em cidades inteligentes" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

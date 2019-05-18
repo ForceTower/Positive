@@ -1,2 +1,2 @@
-include ':app', ':dagger', ':news'
+include ':app', ':dagger', ':news', ':storiesprogressview'
 rootProject.name='Positive News'
