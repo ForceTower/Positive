@@ -1,0 +1,2 @@
+include ':app', ':dagger', ':news'
+rootProject.name='Positive News'
