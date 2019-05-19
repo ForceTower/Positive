@@ -1,3 +1,5 @@
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools"
+    tools:locale="pt-BR">
     <string name="title_news">News</string>
+    <string name="news_source">Fonte: %s</string>
 </resources>

@@ -3,6 +3,12 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <data>
+        <variable
+            name="news"
+            type="com.forcetower.news.News" />
+    </data>
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
@@ -29,12 +35,28 @@
             android:orientation="horizontal"
             app:layout_constraintGuide_percent="0.9" />
 
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/side_threshold"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.3"/>
+
+        <com.forcetower.storiesprogressview.StoriesProgressView
+            android:id="@+id/stories_progress"
+            android:layout_width="0dp"
+            android:layout_height="5dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"/>
+
         <TextView
             android:id="@+id/hashtag"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="56dp"
             android:layout_marginEnd="4dp"
+            android:text="@{news.hashtag}"
             android:textAllCaps="true"
             android:textColor="?android:attr/textColorPrimary"
             android:textSize="20sp"
@@ -47,6 +69,7 @@
             android:id="@+id/bar"
             android:layout_width="0dp"
             android:layout_height="8dp"
+            app:backgroundColorInt="@{news.barColor}"
             app:layout_constraintBottom_toTopOf="@+id/hashtag"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="@+id/hashtag"
@@ -56,6 +79,7 @@
             android:id="@+id/news_source"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:text="@{@string/news_source(news.source)}"
             android:textColor="?android:attr/textColorPrimary"
             android:textSize="16sp"
             app:layout_constraintBottom_toTopOf="@+id/headline"
@@ -69,6 +93,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:gravity="center"
+            android:text="@{news.headline}"
             android:textAlignment="gravity"
             android:textColor="?android:attr/textColorPrimary"
             android:textSize="25sp"
@@ -77,6 +102,24 @@
             app:layout_constraintEnd_toEndOf="@id/news_end"
             app:layout_constraintTop_toBottomOf="@+id/news_source"
             tools:text="O BNDES vai investir em três municípios para se transformarem em cidades inteligentes" />
+
+        <View
+            android:id="@+id/next"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/side_threshold"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <View
+            android:id="@+id/prev"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/side_threshold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
